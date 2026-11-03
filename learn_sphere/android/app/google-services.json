@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "909474170993",
+    "firebase_url": "https://learn-dbf48-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "learn-dbf48",
+    "storage_bucket": "learn-dbf48.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909474170993:android:68f26c5f3f0ba176a573d0",
+        "android_client_info": {
+          "package_name": "com.example.learn_sphere"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909474170993-vhh4c3abgam86iqvi3j40rvjip63voi3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA19S159XtFMn7eV8WJmXUNKOASvhL30Ok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909474170993-vhh4c3abgam86iqvi3j40rvjip63voi3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
