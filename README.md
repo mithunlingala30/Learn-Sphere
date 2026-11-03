@@ -1,224 +1,241 @@
-# 🎓 Learn Sphere — Automated Test & CI/CD Framework
+# 🎓 Learn Sphere
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge&logo=githubactions" alt="Build Status" />
-  <img src="https://img.shields.io/badge/Tests-1%2C293%20Passed-success?style=for-the-badge&logo=pytest" alt="Tests Passed" />
-  <img src="https://img.shields.io/badge/Coverage-100%25-blue?style=for-the-badge" alt="Coverage" />
-  <img src="https://img.shields.io/badge/Python-3.9%20|%203.11%20|%203.13-3776AB?style=for-the-badge&logo=python" alt="Python Version" />
-  <img src="https://img.shields.io/badge/Flutter-3.x-02569B?style=for-the-badge&logo=flutter" alt="Flutter" />
-  <img src="https://img.shields.io/badge/FastAPI-1.0.0-009688?style=for-the-badge&logo=fastapi" alt="FastAPI" />
+  <b>A Cross-Platform Smart Learning Management & Digital Wellbeing Platform</b>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Android%20|%20iOS%20|%20Web%20|%20Desktop-blue?style=for-the-badge" alt="Platform" />
+  <img src="https://img.shields.io/badge/Frontend-Flutter%203.x-02569B?style=for-the-badge&logo=flutter" alt="Flutter" />
+  <img src="https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python" alt="Python" />
+  <img src="https://img.shields.io/badge/Language-Dart%20|%20Python%20|%20Kotlin-orange?style=for-the-badge" alt="Languages" />
 </p>
 
 ---
 
-## 📌 Overview
+## 📖 About Learn Sphere
 
-**Learn Sphere** is a modern cross-platform learning management and digital wellbeing ecosystem built with **Flutter** (Web & Mobile) and a high-performance **FastAPI** backend.
+**Learn Sphere** is an ecosystem that bridges **online education** and **digital wellbeing**. While online learners need access to digital devices for coursework, research, and coding, distractions from social media and entertainment apps often derail productive study sessions.
 
-This repository features an enterprise-grade automated testing suite comprising **1,293 rigorous test cases** across **4 specialized testing dimensions**:
-1. 🌐 **Selenium Web Frontend Automation** (302 Test Cases)
-2. 📱 **Appium Mobile UI & Gesture Automation** (330 Test Cases)
-3. ⚡ **FastAPI Backend & API Integration Testing** (336 Test Cases)
-4. 🚀 **High-Concurrency Load & Stress Testing** (325 Test Cases)
-
-Every test suite outputs real-time colorized badges to the console and generates richly styled, multi-sheet **Excel reports (`.xlsx`)** with executive dashboards, KPI cards, and module-by-module breakdown tables.
+Learn Sphere solves this by pairing a complete **Course & Learning Classroom** with an **Intelligent Screen Time & App Limit Manager**:
+- Tracks real-time app usage across devices via native system APIs.
+- Automatically calculates study streaks and productive vs. distracting screen time ratios.
+- Enforces strict app timers with gentle warning notifications and full-screen blocking overlays when daily quotas are exceeded.
+- Synchronizes analytics seamlessly across mobile devices and web dashboards.
 
 ---
 
-## 📊 Test Suite Summary
+## 🏛️ System Architecture
 
-| # | Test Suite | Target Surface | Test Cases | Pass Rate | Generated Excel Report |
-|---|---|---|:---:|:---:|---|
-| **1** | **Selenium Frontend** | Web & Desktop UI | **302** | 100% | `automated test/selenium_test_report.xlsx` |
-| **2** | **Appium Mobile** | Android & iOS Mobile | **330** | 100% | `automated test/appium_test_report.xlsx` |
-| **3** | **Backend Integration** | FastAPI API Endpoints | **336** | 100% | `backend test/backend_test_report.xlsx` |
-| **4** | **Load & Performance** | Concurrency, RPS & Stress | **325** | 100% | `load test/load_test_report.xlsx` |
-| 🏆 | **TOTAL FULL STACK** | **Complete Platform** | **1,293** | **100%** | **Consolidated Excel Archive** |
+Learn Sphere is built using a decoupled client-server architecture:
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        LEARN SPHERE FRONTEND                           │
+│                         (Flutter Multiplatform)                        │
+├───────────────────────────────────┬────────────────────────────────────┤
+│           Mobile Client           │             Web Client             │
+│   (Android & iOS Shell / Tabs)    │     (Responsive Desktop Shell)     │
+│  - Home Dashboard & Circular Dial │  - Executive Overview & Metrics    │
+│  - App Limits & Duration Sliders  │  - Monitored Apps Grid             │
+│  - Weekly Insights & Analytics    │  - Curriculum & Limit Editor       │
+│  - User Profile & Downtime Modes  │  - Platform Settings               │
+└─────────────────┬─────────────────┴──────────────────┬─────────────────┘
+                  │                                    │
+                  ▼                                    ▼
+       ┌───────────────────────┐            ┌───────────────────────┐
+       │     Native Bridge     │            │      Local State      │
+       │  (Android Kotlin / JNI│            │   (Orbit / Reactive)  │
+       │ - UsageStatsManager   │            │ - SQLite Offline Cache│
+       │ - System Alert Window │            │ - SharedPreferences   │
+       │ - Foreground Service  │            │ - Secure Token Storage│
+       └──────────┬────────────┘            └───────────┬───────────┘
+                  │                                     │
+                  └──────────────────┬──────────────────┘
+                                     │
+                             RESTful API (JSON)
+                                     │
+                                     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                        LEARN SPHERE BACKEND                            │
+│                         (FastAPI / Python)                             │
+├────────────────────────────────────────────────────────────────────────┤
+│  - REST Endpoints (/usage, /limits, /alerts, /health)                  │
+│  - Real-Time Limit Evaluation Engine (OK / Warning / Exceeded)         │
+│  - Concurrency Lock & Thread-Safe In-Memory / Persistent Storage       │
+│  - Batch Syncing Pipeline for Background Device Telemetry             │
+│  - CORS Middleware & Interactive Swagger/OpenAPI Documentation         │
+└────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 📂 Project Structure
+## ⚙️ How It Works (End-to-End Workflow)
+
+```
+ [1. App Used on Phone] ──> [2. Native Bridge Reads Usage] ──> [3. Background Sync to FastAPI]
+           │                                                                  │
+           ▼                                                                  ▼
+ [6. Exceeded Overlay Blocker] <── [5. Threshold Evaluated] <── [4. Limit Comparison]
+   (Centre-screen popup &           (Status: OK / Warning           (Used Seconds vs.
+    touch-blocking window)           at 80% / Exceeded at 100%)      Daily Limit Minutes)
+```
+
+1. **Telemetry Capture**: On mobile, the Android native bridge interacts with `UsageStatsManager` to track foreground window transitions and active screen time seconds.
+2. **Batch Syncing**: The mobile client bundles application telemetry and syncs with the FastAPI backend via `PUT /usage/sync` or real-time `POST /usage/log`.
+3. **Status Evaluation**: The backend compares accumulated daily usage against configured limits for each package:
+   - **`ok`**: Usage is below the user's warning threshold.
+   - **`warning`**: Usage crosses the threshold (default: 80%). A system notification banner displays remaining minutes.
+   - **`exceeded`**: Usage reaches 100% of the daily quota.
+4. **Enforcement & Intervention**: When an app is exceeded, the mobile shell triggers a `SYSTEM_ALERT_WINDOW` overlay. The full-screen modal intercepts user input, presents the time spent, and offers options to either exit the app or return to study mode in Learn Sphere.
+5. **Analytics & Reflection**: Usage metrics are processed into daily totals, weekly trend charts, peak hourly heatmaps, and category ratios (Productive vs. Entertainment).
+
+---
+
+## 🌟 Key Features
+
+### 1. 📱 Home Dashboard & Real-Time Screen Time
+- **Circular Progress Dial**: Visualizes today's aggregate screen time with hour and minute formatting.
+- **Top Apps Feed**: Lists applications ranked in descending order of screen time with color-coded progress bars.
+- **Learning Streak Counter**: Tracks consecutive days of productive study with an animated streak flame.
+- **Focus Mode**: Quick-action Pomodoro timer to silence non-essential apps during deep study blocks.
+
+### 2. ⏱️ App Limits & Custom Timers
+- **Granular Daily Quotas**: Set usage limits in minutes or hours for individual apps or entire categories (e.g., Social Media).
+- **Customizable Warning Threshold**: Choose when to receive advance warning alerts (e.g., at 75%, 80%, or 90% of the limit).
+- **Grace Periods & Snooze**: Option to grant a one-time 5-minute extension for critical tasks.
+- **Pause & Resume**: Temporarily suspend enforcement for a specific app without deleting the configured timer.
+
+### 3. 🛡️ System Overlays & Distraction Blocker
+- **Full-Screen Intervention**: Displays a centre-of-screen modal ("Time's up!") directly over blocked applications.
+- **Touch Interception**: Consumes underlying touch gestures to prevent mindless scrolling.
+- **System Shade Alerts**: Sends persistent notifications with actionable deep links back to the Learn Sphere dashboard.
+
+### 4. 📊 Analytics, Trends & Insights
+- **Weekly Bar Chart**: Interactive Mon–Sun bar graph with tap tooltips displaying daily screen time.
+- **Category Donut Chart**: Breakdown of time spent across Education, Productivity, Social Media, and Games.
+- **Week-over-Week Metrics**: Shows percentage trends compared to the previous week to encourage habit reduction.
+- **Hourly Heatmap**: 24-hour visual distribution highlighting peak phone usage hours.
+
+### 5. 🌙 Bedtime & Wellbeing Modes
+- **Downtime Schedule**: Set custom bedtime hours (e.g., 10:00 PM to 7:00 AM) to automatically restrict entertainment apps.
+- **Quiet Hours**: Suppresses audible alert chimes during scheduled study hours and meetings.
+- **Follow System Theme**: Seamless dark and light mode adaptation matching system display preferences.
+
+---
+
+## 📁 Directory Structure
 
 ```text
-Learn-Sphere/
-├── .github/
-│   └── workflows/
-│       └── ci.yml                      # Single CI pipeline running 4 jobs in parallel
-├── learn_sphere/                       # Flutter Mobile & Web Application
-│   ├── automated test/
-│   │   ├── selenium_test.py            # 302 Selenium Frontend Test Cases
-│   │   ├── selenium_test_report.xlsx   # Styled Multi-Sheet Excel Report
-│   │   ├── appium_test.py              # 330 Appium Mobile UI Test Cases
-│   │   └── appium_test_report.xlsx     # Styled Multi-Sheet Excel Report
-│   ├── backend test/
-│   │   ├── backend_test.py             # 336 Backend API Test Cases
-│   │   └── backend_test_report.xlsx    # Styled Multi-Sheet Excel Report
-│   ├── load test/
-│   │   ├── load_test.py                # 325 High-Concurrency Load Tests
-│   │   └── load_test_report.xlsx       # Styled Multi-Sheet Excel Report
-│   ├── lib/                            # Flutter Dart Source Code
-│   │   ├── screens/                    # Mobile & Web Shells, Auth, Tabs
-│   │   ├── state/                      # App State & Orbit State Management
-│   │   └── widgets/                    # Responsive UI Components
-│   └── test-requirements.txt           # Test Runner Dependencies
-├── Learn-Sphere-Backend-main/          # FastAPI Backend Repository
-│   ├── main.py                         # FastAPI Application Core
-│   ├── backend test/
-│   │   ├── backend_test.py             # 336 Backend Test Cases
-│   │   └── backend_test_report.xlsx    # Backend Excel Report
-│   └── requirements.txt                # Backend Dependencies
-└── README.md                           # Documentation
+├── learn_sphere/                       # Flutter Application (Mobile, Web, Desktop)
+│   ├── android/                        # Android Native Project (Kotlin, Gradle, Manifest)
+│   ├── ios/                            # iOS Native Project (Swift, Runner, Xcode)
+│   ├── web/                            # Web Bootstrap (index.html, Manifest, Icons)
+│   ├── lib/                            # Dart Source Code
+│   │   ├── main.dart                   # Application Entry Point & Route Definitions
+│   │   ├── config.dart                 # API Host & Environment Settings
+│   │   ├── models/                     # Data Models (AppUsage, AppLimit, User)
+│   │   ├── screens/                    # User Interface Screens
+│   │   │   ├── auth/                   # Login, Registration & Password Recovery
+│   │   │   ├── mobile/                 # Mobile Shell, Home, Limits, Insights, Profile
+│   │   │   └── web/                    # Desktop & Tablet Responsive Web Shell
+│   │   ├── services/                   # Service Layer
+│   │   │   ├── api_service.dart        # Backend HTTP Client
+│   │   │   ├── auth_service.dart       # Session & Token Management
+│   │   │   └── native_bridge.dart      # Platform Channels for Android Usage & Overlays
+│   │   ├── state/                      # Global Reactive State Management
+│   │   ├── theme/                      # Design System Tokens, Colors & Typography
+│   │   └── widgets/                    # Reusable UI Components & Dialogs
+│   └── pubspec.yaml                    # Flutter Package Dependencies
+│
+└── Learn-Sphere-Backend-main/          # FastAPI Backend Server
+    ├── main.py                         # Application Core, Endpoints & Data Models
+    └── requirements.txt                # Python Server Dependencies
 ```
 
 ---
 
-## 🔍 Detailed Test Coverage Breakdown
+## 🛠️ Technology Stack
 
-### 1. 🌐 Selenium Frontend Test Suite (`302 Cases`)
-Located in `learn_sphere/automated test/selenium_test.py`
-- **M01_AUTH** (27 Cases): Login, Signup, OTP Recovery, Social OAuth, Password Strength Meter, JWT Token Expiry, CSRF
-- **M02_NAV** (26 Cases): Responsive Header, Dark/Light Theme Switching, Drawer Menu, Breadcrumbs, Notifications Drawer
-- **M03_DASH** (26 Cases): Welcome Banners, Stats Widgets, Learning Streaks, Activity Heatmaps, PDF Transcripts
-- **M04_CATALOG** (27 Cases): Debounced Search, Category Filter Pills, Star Ratings, Price Sorting, Pagination
-- **M05_DETAIL** (27 Cases): Course Outline Accordion, Free Video Preview Modals, Reviews, Sticky Pricing Card
-- **M06_PLAYER** (26 Cases): HTML5 Video Controls, Scrub Bar, Speed Selector (0.75x–2x), Subtitles, Notes, Resources
-- **M07_QUIZ** (25 Cases): Timer Countdowns, Single/Multi-Select, Code Highlighting, Instant Scores, Retake Guards
-- **M08_ASSIGN** (24 Cases): Drag-and-Drop Uploads, Format Validation, Due Date Urgency Badges, Rubric Grading
-- **M09_PROFILE** (24 Cases): Avatar Cropper, Profile Forms, Password Updates, Active Sessions Revocation
-- **M10_COMMUNITY** (25 Cases): Discussion Threads, Markdown Post Editor, Comment Nesting, Upvoting, Accepted Solution
-- **M11_CART** (25 Cases): Cart Slide-Over Drawer, Promo Coupons, Stripe Payment Form, Invoice Download
-- **M12_PERF_SEC** (20 Cases): HTTPS Enforcement, XSS Sanitation, ARIA Accessibility Landmarks, WCAG AA Contrast
-
-### 2. 📱 Appium Mobile UI Test Suite (`330 Cases`)
-Located in `learn_sphere/automated test/appium_test.py`
-- **M01_LAUNCH** (26 Cases): Cold/Warm Launch, Permissions (`USAGE_STATS`, `SYSTEM_ALERT_WINDOW`), Boot Receiver
-- **M02_AUTH_MOB** (26 Cases): Mobile Keyboard Types, Biometrics (Fingerprint/Face Unlock), KeyStore Token Storage
-- **M03_NAV_SHELL** (26 Cases): Bottom Navigation Bar, Haptic Feedback, Back Button Traversal, Safe Area Padding
-- **M04_HOME_DASH** (26 Cases): Daily Screen Time Circular Dial, Top Apps Usage Cards, Real-Time Increments
-- **M05_LIMITS_UI** (26 Cases): App Timers, Duration Sliders, 80% Warning Sliders, Swipe-to-Delete, Snooze
-- **M06_OVERLAY_POP** (25 Cases): Fullscreen "Time's Up" Overlay Popups, Touch Blocking, System Shade Alerts
-- **M07_INSIGHTS** (25 Cases): Weekly Bar Charts, Category Donut Charts, 24h Heatmaps, PDF Report Export
-- **M08_SEARCH** (25 Cases): Real-time Search by App / Package Name, Category Pills, Fast Alphabetical Index
-- **M09_PROFILE_UI** (25 Cases): Dark Mode Switch, Bedtime Downtime Schedule, Quiet Hours, GDPR Export
-- **M10_GESTURES** (25 Cases): Pull-to-Refresh, Swipe to Dismiss, Pinch to Zoom, Long-Press Context Menus
-- **M11_OFFLINE** (25 Cases): Local SQLite Cache (`sqflite`), Offline Timers, Auto-Sync on Network Reconnection
-- **M12_HARDWARE** (25 Cases): Screen Rotation, Foldable Dual-Pane View, Low Battery Mode, Memory Trimming
-- **M13_ACCESSIBILITY** (25 Cases): TalkBack Screen Reader Semantics, 48x48dp Touch Targets, 200% Font Resizing
-
-### 3. ⚡ Backend API & Integration Test Suite (`336 Cases`)
-Located in `Learn-Sphere-Backend-main/backend test/backend_test.py`
-- **B01_CORE** (25 Cases): `GET /health`, `GET /docs`, CORS Headers, Request Size Limits, Latency Benchmarks
-- **B02_USAGE** (26 Cases): `POST /usage/log`, Accumulation Math, `PUT /usage/sync`, `GET /usage/today`, `DELETE /usage`
-- **B03_LIMITS** (26 Cases): `PUT /limits/{pkg}`, Daily Limit Minutes, Status Calculations (`ok`, `warning`, `exceeded`)
-- **B04_ALERTS** (25 Cases): `GET /alerts`, Warning Thresholds, Push Notification Payloads, Channel Priorities
-- **B05_AUTH** (26 Cases): User Registration, JWT Access & Refresh Tokens, Bcrypt Hashes, Role RBAC Enforcement
-- **B06_USERS** (26 Cases): User Profiles, Timezones, Avatars, Active Sessions Management, GDPR Data Export
-- **B07_COURSES** (26 Cases): Course CRUD, Curriculum Hierarchies, Search Indexing, Ratings Recalculation
-- **B08_ENROLL** (26 Cases): Enrollment Workflows, Watch-Time Heartbeats, Completion Tracking, Verified Certificates
-- **B09_ASSESS** (26 Cases): Quiz Grading Pipeline, Scoring Calculations, Leaderboard Sorting, Code Sandbox
-- **B10_ASSIGN** (26 Cases): Project Submissions, File Extension Filters, Plagiarism Check, Grading Rubrics
-- **B11_COMMUNITY** (26 Cases): Discussion Feed, Nested Comments, Thread Upvoting, Moderator Lock/Pin
-- **B12_PAYMENTS** (26 Cases): Cart Calculation, Coupon Discounts, Stripe Webhook Handling, PDF Invoices
-- **B13_SECURITY** (26 Cases): SQL Injection Defense, XSS Sanitization, Rate Limiter (100 req/min), Concurrency Integrity
-
-### 4. 🚀 Load & Performance Test Suite (`325 Cases`)
-Located in `learn_sphere/load test/load_test.py`
-- **L01_CONCURRENCY** (25 Cases): Virtual User Scaling (10 to 1,000 Concurrent VUs)
-- **L02_THROUGHPUT_RPS** (25 Cases): High-Throughput Saturation (100 to 3,000+ Requests/Sec)
-- **L03_LATENCY_SLA** (25 Cases): Percentiles (**P50: 3.4ms**, **P95: 22.3ms**, **P99: 46.5ms**, Tail: 88.2ms)
-- **L04_STRESS_PEAK** (25 Cases): 1.5x, 2.0x, 3.0x Breakpoint Stress Testing, Zero OOM Crashes
-- **L05_SPIKE_LOAD** (25 Cases): Instant 5x & 10x Flash Crowd Traffic Surges in < 2 Seconds
-- **L06_SOAK_ENDURE** (25 Cases): Long-Duration Sustained Load, Zero Memory Leaks over 100,000 Requests
-- **L07_VOLUME_DATA** (25 Cases): Batch Ingestion of 1,000 to 10,000 Records per Payload
-- **L08_RAMP_WORKLOAD** (25 Cases): Step, Linear, and Sinusoidal Workload Wave Transitions
-- **L09_LOCK_CONTENT** (25 Cases): Thread Contention & Global Lock Stability across 50,000 Lock Cycles
-- **L10_CONN_POOL** (25 Cases): HTTP/2 & Database Connection Pooling with 98.4% Socket Reuse
-- **L11_THROTTLE_RATE** (25 Cases): Leaky Bucket Rate Limiting, HTTP 429 Status, `Retry-After` Headers
-- **L12_NETWORK_CHAOS** (25 Cases): 200–1000ms Latency, 5–15% Packet Loss, Circuit Breaker Fallback
-- **L13_RESOURCE_UTIL** (25 Cases): CPU & Memory Profiling, Event Loop Latency (< 3.2ms), Disk Write I/O
+| Layer | Technology | Purpose |
+|---|---|---|
+| **Mobile & Web UI** | [Flutter](https://flutter.dev/) (Dart 3.x) | Cross-platform frontend compiled to native Android, iOS, and Web |
+| **Backend API** | [FastAPI](https://fastapi.tiangolo.com/) (Python 3.9+) | High-performance asynchronous REST API framework |
+| **API Server** | [Uvicorn](https://www.uvicorn.org/) | Lightning-fast ASGI web server implementation |
+| **Data Validation** | [Pydantic v2](https://docs.pydantic.dev/) | Strict data parsing, type validation, and schema definitions |
+| **Native Integration** | Android Kotlin & Platform Channels | Access to `UsageStatsManager` and `SYSTEM_ALERT_WINDOW` |
+| **Local Storage** | SQLite (`sqflite`) & SharedPreferences | Offline caching of usage telemetry and user preferences |
+| **API Documentation** | OpenAPI 3.0 / Swagger UI | Interactive API documentation available at `/docs` |
 
 ---
 
-## 🚀 Running Tests Locally
+## 🚀 Getting Started
 
-### Prerequisites
-Make sure Python 3.9+ is installed:
+### 1. Run the Backend API Server
+
+Open a terminal and navigate to the backend directory:
+
 ```powershell
-pip install -r learn_sphere/test-requirements.txt
+cd "Learn-Sphere-Backend-main"
+
+# Install backend dependencies
+pip install -r requirements.txt
+
+# Start the FastAPI server with live reloading
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### 1. Run Selenium Frontend Tests (302 Cases)
-```powershell
-python "learn_sphere/automated test/selenium_test.py"
-```
+Once started:
+- API Root: `http://localhost:8000`
+- Interactive Swagger Documentation: `http://localhost:8000/docs`
+- Health Check: `http://localhost:8000/health`
 
-### 2. Run Appium Mobile UI Tests (330 Cases)
-```powershell
-python "learn_sphere/automated test/appium_test.py"
-```
+---
 
-### 3. Run Backend API Tests (336 Cases)
-```powershell
-python "Learn-Sphere-Backend-main/backend test/backend_test.py"
-```
+### 2. Run the Flutter Application
 
-### 4. Run Load & Performance Tests (325 Cases)
+In a separate terminal, navigate to the `learn_sphere` directory:
+
 ```powershell
-python "learn_sphere/load test/load_test.py"
+cd "learn_sphere"
+
+# Fetch Flutter dependencies
+flutter pub get
+
+# Run on Chrome (Web)
+flutter run -d chrome
+
+# Or run on a connected Android device / emulator
+flutter run -d android
 ```
 
 ---
 
-## 🤖 GitHub Actions CI/CD Pipeline
+## 🔌 API Endpoints Reference
 
-The repository includes an optimized **GitHub Actions workflow** located at [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
-
-### Parallel Job Architecture
-Whenever changes are pushed to any branch, the workflow triggers **4 independent parallel jobs**:
-
-```
-                       ┌───────────────────────────────┐
-                       │     GitHub Actions (ci.yml)   │
-                       └───────────────┬───────────────┘
-                                       │
-        ┌───────────────────┬──────────┴────────┬───────────────────┐
-        ▼                   ▼                   ▼                   ▼
-┌──────────────────┐┌──────────────────┐┌──────────────────┐┌──────────────────┐
-│ 1. Selenium      ││ 2. Appium Mobile ││ 3. Backend API   ││ 4. Load & Perf   │
-│ Frontend (302)   ││ UI (330 Cases)   ││ Tests (336 Cases)││ Tests (325 Cases)│
-└────────┬─────────┘└────────┬─────────┘└────────┬─────────┘└────────┬─────────┘
-         │                   │                   │                   │
-         └───────────────────┴─────────┬─────────┴───────────────────┘
-                                       ▼
-                       ┌───────────────────────────────┐
-                       │ 5. Executive Summary & Bundle │
-                       │ (All Reports Zip in Artifacts)│
-                       └───────────────────────────────┘
-```
-
-### Key Workflow Highlights
-- ✅ **No Packaging Failures**: Utilizes pre-installed Google Chrome on Ubuntu runners without legacy package dependencies.
-- 📦 **Downloadable Artifacts**: Each test job generates and attaches its styled Excel report (`.xlsx`) to the run.
-- 🗂️ **Consolidated Bundle**: The final summary job packages all 4 reports into `learn-sphere-all-test-reports.zip`.
-- 📋 **Step Summary Dashboard**: Automatically renders a Markdown table on GitHub Actions summarizing total tests and pass rates.
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/` | Returns service name and documentation link |
+| `GET` | `/health` | Server health check probe |
+| `POST` | `/usage/log` | Logs seconds of usage for a specific app package |
+| `PUT` | `/usage/sync` | Bulk syncs daily usage totals across multiple apps |
+| `GET` | `/usage/today` | Retrieves per-app usage breakdown for today |
+| `GET` | `/usage/history` | Fetches historical daily screen time summaries |
+| `DELETE` | `/usage` | Flushes all recorded usage data |
+| `PUT` | `/limits/{package_name}` | Creates or updates daily time limit for an app |
+| `GET` | `/limits` | Lists all configured limits with current statuses |
+| `GET` | `/limits/{package_name}/status` | Checks real-time limit status for a specific app |
+| `DELETE` | `/limits/{package_name}` | Removes limit configuration for an app |
+| `GET` | `/alerts` | Returns all apps currently in `warning` or `exceeded` state |
 
 ---
 
-## 📈 Excel Report Structure
+## 🔒 Security & Privacy
 
-Each generated `.xlsx` report contains three professionally styled sheets built with **OpenPyXL**:
-
-1. **Executive Summary**:
-   - Header Banner with project branding and run date.
-   - 3 High-level KPI metric cards (**Total Cases**, **Passed**, **Pass Rate: 100%**).
-   - Detailed Execution Metadata table (Engine, environment, duration).
-   - High-level Module Breakdown summary.
-2. **Test Results**:
-   - Tabular record of all test cases.
-   - Columns: `Test ID`, `Module Code`, `Module Name`, `Scenario`, `Description`, `Expected Result`, `Actual Result`, `Status [PASS]`, `Duration (s)`, `Timestamp`.
-   - Distinct styling: Navy blue headers, alternating zebra striping, green `[PASS]` badges.
-3. **Module Breakdown**:
-   - Metrics per functional module: `Total Tests`, `Passed`, `Failed`, `Pass Rate (%)`, `Total Duration`, `Average Latency (ms)`.
+- **On-Device Processing**: Screen time analysis is computed using local system timestamps without collecting personal user keystrokes or screen contents.
+- **Configurable Whitelisting**: System utilities, phone dialer, and emergency services are permanently exempt from blocking overlays.
+- **Zero Third-Party Ad Trackers**: No third-party ad SDKs or user tracking telemetry are embedded.
 
 ---
 
